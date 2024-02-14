@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejsapp-deployment
+spec:
+  selector:
+    matchLabels:
+      app: nodejsapp
+  template:
+    metadata:
+      labels:
+        app: nodejsapp
+    spec:
+      containers:
+        - name: nodejsapp
+          # 여러분의 image 주소를 입력해주세요.
+          image: krmp-d2hub-idock.9rum.cc/dev-test/repo_86f6745db377
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: nodejsapp-svc
+spec:
+  ports:
+    - port: 3000
+      targetPort: 3000
+  selector:
+    app: nodejsapp
