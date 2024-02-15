@@ -2,4 +2,3 @@ namespace: krampoline
 resources:
   - blankapp.yaml
   - nodejsapp.yaml
-  - ingress.yaml
